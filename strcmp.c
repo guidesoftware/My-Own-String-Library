@@ -1,0 +1,27 @@
+#include <stdio.h>
+#define LENGTH 100
+int my_strncmp(char s1[],char s2[],int n);// declaring prototype the main function
+
+int main(void){
+	int size;
+	printf("Comparative up to which index?(Enter the value of n)");
+	scanf("%d",&size);
+	char string1[LENGTH];
+	char string2[LENGTH];
+	printf("Please enter the 1st and 2nd strings. The two strings must be of equal length.");
+	scanf("%s %s",string1,string2);
+	printf("%d",my_strncmp(string1,string2,size)); 
+	return 0;
+}
+int my_strncmp(char s1[],char s2[],int n){
+
+	for(int i=0;i<n;i++)
+	{
+		if(s1[i] == s2[i]){
+			if(i==(n-1)) return 0; }//  if the ASCII values ​​of all characters of the two arrays are equal returns 0
+		int a1 = (int) s1[i];
+		int a2 = (int) s2[i];
+		if(a1>a2) return 1; // if the ASCII value of the first character in string 1 is greater than string 2 returns 1.
+		if(a2>a1) return -1;// if the ASCII value of the first character in string 2 is greater than string 1 returns -1.
+	}
+}
